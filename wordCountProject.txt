@@ -1,0 +1,45 @@
+//First of all download apache spark on official website of spark
+// and do all the necessary steps to install software and like setting the path and bashrc file etc
+
+open spark shell using command:~$ spark-shell
+
+
+:~$ val inputfile = sc.textFile("input.txt")  // here input.txt is a txt file in which some paragraphs are written.
+
+
+:~$ val counts = inputfile.flatMap (line => line.split (" ")).map (word => (word, 1)).reduceByKey (_+_)
+
+
+:~$ counts.saveAsTextFile ("output")
+
+
+:~$ exit
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+// now to see the output 
+
+:~$ls
+
+//After running ls command you will see "output" named file.
+
+:~$ cd output
+
+//now run ls command you will se three files  
+
+ :~/output$ ls
+
+
+part-00000  part-00001  _SUCCESS
+
+
+//now you can see your output by running cat command
+
+
+:~/output$ cat part-00001
+
+//you will get the output on your console
+
+Thanks !
+
+
